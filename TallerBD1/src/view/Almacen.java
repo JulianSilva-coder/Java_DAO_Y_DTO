@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 public class Almacen extends JPanel {
 	
+	private static final long SerialVersionIUD = 1L;
 	private JTextField barra1, barra2, barra3, barra4;
 	private JLabel etiq1, etiq2, etiq3,etiq4;
 	private JButton guardar, tabla;
@@ -32,7 +33,7 @@ public class Almacen extends JPanel {
 		add(etiq1);
 		
 		barra1 = new JTextField();
-		barra1.setBounds(40,95,250,40);
+		barra1.setBounds(40,95,300,40);
 		barra1.setFont(new Font("Arial", Font.BOLD,18));
 		add(barra1);
 		
@@ -43,7 +44,7 @@ public class Almacen extends JPanel {
 		add(etiq2);
 		
 		barra2 = new JTextField();
-		barra2.setBounds(40,185,250,40);
+		barra2.setBounds(40,185,300,40);
 		barra2.setFont(new Font("Arial", Font.BOLD,18));
 		add(barra2);
 		
@@ -54,18 +55,18 @@ public class Almacen extends JPanel {
 		add(etiq3);
 		
 		barra3 = new JTextField();
-		barra3.setBounds(40,275,250,40);
+		barra3.setBounds(40,275,300,40);
 		barra3.setFont(new Font("Arial", Font.BOLD,18));
 		add(barra3);
 		
 		etiq4 = new JLabel("Numero de Serie:");
 		etiq4.setFont(new Font("Arial", Font.BOLD,18));
 		etiq4.setForeground(Color.white);
-		etiq4.setBounds(40,320,250,50);
+		etiq4.setBounds(40,320,300,50);
 		add(etiq4);
 		
 		barra4 = new JTextField();
-		barra4.setBounds(40,365,250,40);
+		barra4.setBounds(40,365,300,40);
 		barra4.setFont(new Font("Arial", Font.BOLD,18));
 		add(barra4);
 		

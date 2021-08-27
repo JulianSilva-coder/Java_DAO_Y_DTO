@@ -20,6 +20,12 @@ public class Controller implements ActionListener {
 		 */
 		ventana = new Ventana_Inicio();
 		asignarOyentes();
+		var celularesguardado = phone.getCelular().getCelulares();
+
+		for (int i = 0; i < celularesguardado.size(); i++) {
+			ventana.getTabla1().anadirCelular(celularesguardado.get(i).getMarca(), celularesguardado.get(i).getModelo(),
+					celularesguardado.get(i).getSistemaOP(), celularesguardado.get(i).getImei());
+		}
 	}
 
 	private void asignarOyentes() {
@@ -27,7 +33,10 @@ public class Controller implements ActionListener {
 		ventana.getInicio().getIniciar().addActionListener(this);
 		ventana.getAlmacen().getTabla().addActionListener(this);
 		ventana.getArchivo().addActionListener(this);
-		
+		ventana.getTabla1().getAtras().addActionListener(this);
+		ventana.getAlmacen().getGuardar().addActionListener(this);
+		ventana.getTabla1().getEditar().addActionListener(this);
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -48,16 +57,39 @@ public class Controller implements ActionListener {
 		} else if (comando.equals("ARCHIVO")) {
 			JOptionPane.showMessageDialog(ventana, "Para encontrar el archivo donde se registra todos los objetos."
 					+ "\n" + "Dirigete a: TallerBD1 > Data > Datos.cps");
-		}
+		} else if (comando.equals("ATRAS")) {
+			ventana.getInicio().setVisible(false);
+			ventana.getAlmacen().setVisible(true);
+			ventana.getTabla1().setVisible(false);
+		} else if (comando.equals("SUBIR")) {
+			if (ventana.getAlmacen().getBarra1().getText().equals("")) {
+				JOptionPane.showMessageDialog(ventana, "Llene los datos de marca Por favor");
+			} else if (ventana.getAlmacen().getBarra2().getText().equals("")) {
+				JOptionPane.showMessageDialog(ventana, "Llene los datos de modelo Por favor");
+			} else if (ventana.getAlmacen().getBarra3().getText().equals("")) {
+				JOptionPane.showMessageDialog(ventana, "Llene los datos de Sistema_Operativo Por favor");
+			} else if (ventana.getAlmacen().getBarra2().getText().equals("")) {
+				JOptionPane.showMessageDialog(ventana, "Llene los datos de Imei Por favor");
 
+			}
+			anadircelular(ventana.getAlmacen().getBarra1().getText(), ventana.getAlmacen().getBarra2().getText(),
+					ventana.getAlmacen().getBarra3().getText(), ventana.getAlmacen().getBarra4().getText());
+		}else if(comando.equals("BORRAR")) {
+			eliminarcelular(ventana.getTabla1().leerimei());
+		}
 	}
 
 	public void anadircelular(String marca, String modelo, String sistemaOP, String imei) {
 		phone.getCelular().crear(marca, modelo, sistemaOP, imei);
+		ventana.getTabla1().anadirCelular(marca, modelo, sistemaOP, imei);
 	}
 
 	public void leercelular(String imei) {
 		var telefono = phone.getCelular().leer(imei);
 		System.out.println(telefono.getImei() + telefono.getMarca() + telefono.getModelo() + telefono.getSistemaOP());
+	}
+	public void eliminarcelular(String imei) {
+		phone.getCelular().eliminar(phone.getCelular().leer(imei));
+		ventana.getTabla1().eliminarFila(imei);
 	}
 }

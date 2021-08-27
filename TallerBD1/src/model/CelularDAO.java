@@ -12,6 +12,16 @@ public class CelularDAO {
 	/*
 	 * Utilizamos el arrayList para poder crear, escribir, eliminar, y actualizar los objetos del tipo celular 
 	 */
+	
+	public CelularDAO() {
+		try {
+			var celularesR = (ArrayList<CelularDTO>) new Archivo().leerarchivo();
+			celulares = celularesR;
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	private ArrayList<CelularDTO> celulares = new ArrayList<>();
 	
 	public void crear(String marca, String modelo, String sistemaOP, String imei) {
