@@ -43,6 +43,8 @@ public class Ventana_Inicio extends JFrame {
 		almacen = new Almacen();
 		getContentPane().add(almacen);
 		
+		Tabla1 = new Registro_panel();
+		getContentPane().add(Tabla1);
 		
 	}
 
@@ -84,5 +86,13 @@ public class Ventana_Inicio extends JFrame {
 
 	public void setAlmacen(Almacen almacen) {
 		this.almacen = almacen;
+	}
+
+	public Registro_panel getTabla1() {
+		return Tabla1;
+	}
+
+	public void setTabla1(Registro_panel tabla1) {
+		Tabla1 = tabla1;
 	}
 }

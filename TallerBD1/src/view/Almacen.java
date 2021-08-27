@@ -76,9 +76,89 @@ public class Almacen extends JPanel {
 		add(guardar);
 		
 		tabla = new JButton("Tabla");
-		guardar.setActionCommand("TABLA");
-		guardar.setBounds(255,450,150,50);
-		guardar.setFont(new Font("Arial", Font.BOLD,15));
-		add(guardar);
+		tabla.setActionCommand("TABLA");
+		tabla.setBounds(255,450,150,50);
+		tabla.setFont(new Font("Arial", Font.BOLD,15));
+		add(tabla);
+	}
+
+	public JTextField getBarra1() {
+		return barra1;
+	}
+
+	public void setBarra1(JTextField barra1) {
+		this.barra1 = barra1;
+	}
+
+	public JTextField getBarra2() {
+		return barra2;
+	}
+
+	public void setBarra2(JTextField barra2) {
+		this.barra2 = barra2;
+	}
+
+	public JTextField getBarra3() {
+		return barra3;
+	}
+
+	public void setBarra3(JTextField barra3) {
+		this.barra3 = barra3;
+	}
+
+	public JTextField getBarra4() {
+		return barra4;
+	}
+
+	public void setBarra4(JTextField barra4) {
+		this.barra4 = barra4;
+	}
+
+	public JLabel getEtiq1() {
+		return etiq1;
+	}
+
+	public void setEtiq1(JLabel etiq1) {
+		this.etiq1 = etiq1;
+	}
+
+	public JLabel getEtiq2() {
+		return etiq2;
+	}
+
+	public void setEtiq2(JLabel etiq2) {
+		this.etiq2 = etiq2;
+	}
+
+	public JLabel getEtiq3() {
+		return etiq3;
+	}
+
+	public void setEtiq3(JLabel etiq3) {
+		this.etiq3 = etiq3;
+	}
+
+	public JLabel getEtiq4() {
+		return etiq4;
+	}
+
+	public void setEtiq4(JLabel etiq4) {
+		this.etiq4 = etiq4;
+	}
+
+	public JButton getGuardar() {
+		return guardar;
+	}
+
+	public void setGuardar(JButton guardar) {
+		this.guardar = guardar;
+	}
+
+	public JButton getTabla() {
+		return tabla;
+	}
+
+	public void setTabla(JButton tabla) {
+		this.tabla = tabla;
 	}
 }
